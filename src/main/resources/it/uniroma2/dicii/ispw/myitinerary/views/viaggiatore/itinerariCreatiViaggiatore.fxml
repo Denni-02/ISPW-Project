@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.myitinerary.view.graphiccontroller.MieiItinerariViaggiatore">
+    <children>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="75.0" prefWidth="1180.0" spacing="10.0" style="-fx-background-color: #0083BB;">
+            <children>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#onHomeClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #FF9D43;">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="I miei itinerari" textFill="WHITE" underline="true">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="Itinerari salvati" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="Informazioni" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #FF9D43;">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/account.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <VBox alignment="CENTER" prefHeight="750.0" prefWidth="1200.0" spacing="10.0">
+            <children>
+                <ListView fx:id="itinerariListView" prefHeight="507.0" prefWidth="1190.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin></ListView>
+            <Button mnemonicParsing="false" onAction="#indietroButton" text="Indietro">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+            </children>
+        </VBox>
+        <Button layoutX="1130.0" layoutY="680.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #FF9D43;">
+            <graphic>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../myitinerary/images/chat.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
+</AnchorPane>

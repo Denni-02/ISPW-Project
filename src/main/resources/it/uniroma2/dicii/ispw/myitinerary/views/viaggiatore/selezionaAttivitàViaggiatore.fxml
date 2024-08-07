@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" stylesheets="@../../../myitinerary/css/application.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.myitinerary.view.graphiccontroller.SelezionaAttivitàViaggiatore">
+    <children>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="75.0" prefWidth="1180.0" spacing="10.0" style="-fx-background-color: #0083BB;">
+            <children>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#onHomeClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #FF9D43;">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#mieiItinerariClick" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="I miei itinerari" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="Itinerari salvati" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="Informazioni" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #FF9D43;">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/account.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <Button layoutX="1130.0" layoutY="680.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #FF9D43;">
+            <graphic>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../myitinerary/images/chat.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <HBox alignment="CENTER" layoutX="190.0" layoutY="650.0" maxWidth="820.0" prefHeight="50.0" prefWidth="820.0" spacing="10.0">
+            <children>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#onIndietroClick" prefHeight="60.0" prefWidth="60.0">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/indietro.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <HBox alignment="CENTER" maxHeight="10.0" maxWidth="700.0" prefHeight="10.0" prefWidth="700.0" spacing="10.0">
+                    <children>
+                        <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" />
+                        <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-width: 1; -fx-border-radius: 20;" />
+                        <Button maxHeight="10.0" maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="220.0" style="-fx-background-color: #000000; -fx-border-width: 1; -fx-border-color: #000000; -fx-border-radius: 20; -fx-background-radius: 20;" />
+                    </children>
+                </HBox>
+                <Button fx:id="avantiButton" alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/avanti.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <VBox alignment="CENTER" layoutX="10.0" layoutY="84.0" prefHeight="554.0" prefWidth="1180.0" spacing="10.0">
+            <children>
+                <Label text="Scegli l'attività che desideri aggiungere:">
+                    <font>
+                        <Font name="Arial" size="18.0" />
+                    </font>
+                </Label>
+            <HBox prefHeight="323.0" prefWidth="1180.0" spacing="5.0">
+               <children>
+                      <ListView fx:id="attivitaListView" prefHeight="350.0" prefWidth="600.0">
+                    <!-- Popolato dinamicamente dal controller -->
+                </ListView>
+                  <VBox prefHeight="323.0" prefWidth="559.0" spacing="5.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="150.0" prefWidth="297.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" minHeight="76.0" prefHeight="76.0" prefWidth="298.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Recensioni:">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font></Label>
+                                          <Label fx:id="numeroRecensioniLabel">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font></Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" minHeight="77.0" prefHeight="77.0" prefWidth="298.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Valutazione:">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font></Label>
+                                          <Label fx:id="ratingLabel">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font></Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin></VBox>
+                              <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin></ImageView>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" minHeight="77.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Label text="Descrizione:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font></Label>
+                                    <Label fx:id="descrizioneLabel">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font></Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" minHeight="77.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Label text="Indrizzo:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font></Label>
+                                    <Label fx:id="indirizzoLabel">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children></VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></VBox>
+               </children>
+            </HBox>
+                <Label style="-fx-font-size: 18px;" text="Seleziona Giorno" />
+                <ChoiceBox fx:id="giornoChoiceBox" />
+                <HBox alignment="CENTER" prefHeight="68.0" prefWidth="1180.0" spacing="10.0">
+                    <children>
+                        <Button onAction="#onSalvaItinerarioClick" prefHeight="50.0" prefWidth="200.0" text="Salva Itinerario">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <Button onAction="#onAggiungiAttivitàClick" prefHeight="50.0" prefWidth="200.0" text="Aggiungi Attività">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+            </children></VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../myitinerary/css/login.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.myitinerary.view.graphiccontroller.LoginView">
+    <children>
+        <Text layoutX="361.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accedi">
+            <font>
+                <Font name="Arial" size="26.0" />
+            </font>
+        </Text>
+        <TextField fx:id="email" layoutX="304.0" layoutY="206.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="214.0" promptText="email">
+            <font>
+                <Font name="Arial" size="18.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="password" layoutX="304.0" layoutY="266.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="214.0" promptText="password">
+            <font>
+                <Font name="Arial" size="18.0" />
+            </font>
+        </PasswordField>
+        <Text layoutX="270.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Non hai un account?">
+            <font>
+                <Font name="Arial" size="18.0" />
+            </font>
+        </Text>
+        <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="238.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../myitinerary/images/email.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="238.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../myitinerary/images/password.png" />
+            </image>
+        </ImageView>
+        <Text fx:id="sigUpText" fill="#2994d7" layoutX="440.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrati" underline="true">
+            <font>
+                <Font name="Arial" size="18.0" />
+            </font>
+        </Text>
+        <Button id="login-button" fx:id="loginButton" alignment="CENTER" layoutX="228.0" layoutY="382.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAccediClick" prefHeight="130.0" prefWidth="130.0">
+            <font>
+                <Font name="Arial" size="18.0" />
+            </font>
+            <graphic>
+                <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="105.0" spacing="5.0">
+                    <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Entra">
+                            <font>
+                                <Font name="Arial" size="18.0" />
+                            </font>
+                        </Text>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../myitinerary/images/freccia.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </graphic>
+        </Button>
+        <Button id="google-login-button" fx:id="googleLoginButton" alignment="CENTER" layoutX="420.0" layoutY="382.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0">
+            <graphic>
+                <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="105.0" spacing="5.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Google">
+                            <font>
+                                <Font name="Arial" size="18.0" />
+                            </font>
+                        </Text>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../myitinerary/images/google.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </graphic>
+            <font>
+                <Font name="Arial" size="18.0" />
+            </font>
+        </Button>
+        <Text id="logo-text" fill="#ea8023" layoutX="117.0" layoutY="120.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="MY ITINERARY" />
+        <Label fx:id="errorMsg" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="543.0" prefHeight="22.0" prefWidth="788.0" textAlignment="CENTER" textFill="#dc0b0b">
+            <font>
+                <Font name="Arial" size="18.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

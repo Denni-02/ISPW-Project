@@ -1,0 +1,7 @@
+AnchorPane {
+    -fx-background-image: url("../../myitinerary/images/img.png");
+    -fx-background-size: contain;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-opacity: 1;
+}

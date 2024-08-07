@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" stylesheets="@../../../myitinerary/css/application.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.myitinerary.view.graphiccontroller.InserisciFiltriViaggiatore">
+    <children>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="75.0" prefWidth="1180.0" spacing="10.0" style="-fx-background-color: #0083BB;">
+            <children>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#onHomeClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #FF9D43;">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#mieiItinerariClick" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="I miei itinerari" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="Itinerari salvati" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="Informazioni" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #FF9D43;">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/account.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <VBox alignment="CENTER" layoutX="9.0" layoutY="90.0" prefHeight="554.0" prefWidth="1182.0" spacing="30.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" maxWidth="1100.0" prefHeight="55.0" prefWidth="1100.0" spacing="10.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inserire numero giorni di viaggio:">
+                            <font>
+                                <Font name="Arial" size="24.0" />
+                            </font>
+                        </Text>
+                        <TextField fx:id="giorniTextField" prefHeight="35.0" prefWidth="50.0" />
+                    </children>
+                </HBox>
+                <HBox maxWidth="1100.0" prefHeight="398.0" prefWidth="1100.0" spacing="10.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Seleziona interessi:">
+                            <font>
+                                <Font name="Arial" size="24.0" />
+                            </font>
+                        </Text>
+                        <VBox prefHeight="400.0" prefWidth="899.0" spacing="10.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" right="10.0" top="10.0" />
+                            </HBox.margin>
+                            <children>
+                                <HBox alignment="CENTER" prefHeight="92.0" prefWidth="200.0" spacing="20.0">
+                                    <children>
+                                        <Button fx:id="museiButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 1;" text="Musei">
+                                            <font>
+                                                <Font name="Arial" size="18.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="attrazioniButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 1;" text="Monumenti">
+                                            <font>
+                                                <Font name="Arial" size="18.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="92.0" prefWidth="200.0" spacing="20.0">
+                                    <children>
+                                        <Button fx:id="parchiButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 1;" text="Parchi">
+                                            <font>
+                                                <Font name="Arial" size="18.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="musicaButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 1;" text="Teatri">
+                                            <font>
+                                                <Font name="Arial" size="18.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="92.0" prefWidth="200.0" spacing="20.0">
+                                    <children>
+                                        <Button fx:id="arteButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 1;" text="Arte">
+                                            <font>
+                                                <Font name="Arial" size="18.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="vitaNotturnaButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 1;" text="Vita Notturna">
+                                            <font>
+                                                <Font name="Arial" size="18.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="92.0" prefWidth="200.0" spacing="20.0">
+                                    <children>
+                                        <Button fx:id="bibliotecheButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 1;" text="Biblioteche">
+                                            <font>
+                                                <Font name="Arial" size="18.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <Button layoutX="1130.0" layoutY="680.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #FF9D43;">
+            <graphic>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../myitinerary/images/chat.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <HBox alignment="CENTER" layoutX="190.0" layoutY="650.0" maxWidth="820.0" prefHeight="50.0" prefWidth="820.0" spacing="10.0">
+            <children>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#onIndietroClick" prefHeight="60.0" prefWidth="60.0">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/indietro.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <HBox alignment="CENTER" maxHeight="10.0" maxWidth="700.0" prefHeight="10.0" prefWidth="700.0" spacing="10.0">
+                    <children>
+                        <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" />
+                        <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefWidth="220.0" style="-fx-background-color: #000000; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-width: 1; -fx-border-radius: 20;" />
+                        <Button maxHeight="10.0" maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-border-width: 1; -fx-border-color: #000000; -fx-border-radius: 20; -fx-background-radius: 20;" />
+                    </children>
+                </HBox>
+                <Button fx:id="avantiButton" alignment="CENTER" mnemonicParsing="false" onAction="#onAvantiClick" prefHeight="60.0" prefWidth="60.0">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/avanti.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
