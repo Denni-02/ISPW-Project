@@ -67,12 +67,12 @@
                 </Button>
                 <HBox alignment="CENTER" maxHeight="10.0" maxWidth="700.0" prefHeight="10.0" prefWidth="700.0" spacing="10.0">
                     <children>
-                        <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" />
-                        <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-width: 1; -fx-border-radius: 20;" />
+                        <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#tastoSinistroClick" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;" />
+                        <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#tastoCentraleClick" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-width: 1; -fx-border-radius: 20;" />
                         <Button maxHeight="10.0" maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="220.0" style="-fx-background-color: #000000; -fx-border-width: 1; -fx-border-color: #000000; -fx-border-radius: 20; -fx-background-radius: 20;" />
                     </children>
                 </HBox>
-                <Button fx:id="avantiButton" alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0">
+                <Button fx:id="avantiButton" alignment="CENTER" mnemonicParsing="false" onAction="#tastoAvantiClick" prefHeight="60.0" prefWidth="60.0">
                     <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -189,9 +189,14 @@
                         </Button>
                         <Button onAction="#onAggiungiAttivitàClick" prefHeight="50.0" prefWidth="200.0" text="Aggiungi Attività">
                             <font>
-                                <Font size="18.0" />
+                                <Font name="Arial" size="18.0" />
                             </font>
                         </Button>
+                  <Button mnemonicParsing="false" onAction="#rimuoviAttivitàClick" prefHeight="50.0" prefWidth="200.0" text="Rimuovi Attività">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Button>
                     </children>
                 </HBox>
             </children></VBox>

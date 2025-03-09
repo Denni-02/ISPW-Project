@@ -1,15 +1,12 @@
 package it.uniroma2.dicii.ispw.myitinerary.model.domain;
 
-import it.uniroma2.dicii.ispw.myitinerary.App;
 import it.uniroma2.dicii.ispw.myitinerary.bean.UtenteBean;
-import it.uniroma2.dicii.ispw.myitinerary.enumeration.PersistenceType;
 import it.uniroma2.dicii.ispw.myitinerary.enumeration.Ruolo;
-import it.uniroma2.dicii.ispw.myitinerary.model.dao.UtenteDAO;
-import it.uniroma2.dicii.ispw.myitinerary.model.dao.UtenteDBMS;
-import it.uniroma2.dicii.ispw.myitinerary.model.dao.UtenteFS;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class Utente {
+public class Utente implements Serializable {
 
     private String nome;
     private String cognome;
@@ -19,9 +16,11 @@ public class Utente {
     private String password;
     private Ruolo ruolo;
 
-    private UtenteDAO utenteDAO;
+    //private UtenteDAO utenteDAO;
 
-    public Utente() {
+    private static final long serialVersionUID = 1L;
+
+    /*public Utente() {
         if(App.getPersistenceLayer().equals(PersistenceType.JDBC)){
             utenteDAO = new UtenteDBMS();
         } else {
@@ -29,7 +28,19 @@ public class Utente {
         }
     }
 
-    public Utente(String nome, String cognome, String cf, Date dataDiNascita, String email, String password ,Ruolo ruolo) {
+     */
+
+    public Utente(String nome, String cognome, String cf, Date dataDiNascita, String email, String password, Ruolo ruolo) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.cf = cf;
+        this.dataDiNascita = dataDiNascita;
+        this.email = email;
+        this.password = password;
+        this.ruolo = ruolo;
+    }
+
+    /*public Utente(String nome, String cognome, String cf, Date dataDiNascita, String email, String password ,Ruolo ruolo) {
         this();
         this.nome = nome;
         this.cognome = cognome;
@@ -40,8 +51,12 @@ public class Utente {
         this.ruolo = ruolo;
     }
 
+     */
+
+    public Utente() {}
+
     public Utente(UtenteBean utenteBean){
-        this();
+        //this();
         this.nome = utenteBean.getNome();
         this.cognome = utenteBean.getCognome();
         this.cf = utenteBean.getCf();

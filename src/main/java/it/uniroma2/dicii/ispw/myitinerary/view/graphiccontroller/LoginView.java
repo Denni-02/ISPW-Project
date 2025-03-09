@@ -40,9 +40,9 @@ public class LoginView {
                         case VIAGGIATORE:
                             utente = new Utente(utenteBean);
                             changeScene(actionEvent, "/it/uniroma2/dicii/ispw/myitinerary/views/viaggiatore/homePageViaggiatore.fxml", "Home Page", null, utente);
-                            handleError("Viaggiatore");
                         case PROPRIETARIO_ATTIVITA:
-                            handleError("Proprietario Attività");
+                            utente = new Utente(utenteBean);
+                            changeScene(actionEvent, "/it/uniroma2/dicii/ispw/myitinerary/views/proprietarioattività/homePageProprietario.fxml", "Home Page", null, utente);
                     }
                 } else {
                     handleError("Credenziali errate");

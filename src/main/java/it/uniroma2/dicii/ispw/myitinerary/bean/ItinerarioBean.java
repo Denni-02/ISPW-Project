@@ -3,6 +3,7 @@ package it.uniroma2.dicii.ispw.myitinerary.bean;
 import it.uniroma2.dicii.ispw.myitinerary.model.domain.Attività;
 import it.uniroma2.dicii.ispw.myitinerary.model.domain.Itinerario;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -13,26 +14,27 @@ public class ItinerarioBean {
     private int numeroGiorni;
     private int idItinerario;
     private Map<Integer, List<Attività>> attivitàPerGiorno;
+    private Date dataCreazione;
 
-    // Costruttore vuoto
     public ItinerarioBean() {}
-
-    // Costruttore con parametri
-    public ItinerarioBean(String nomeCittà, String utenteId, int numeroGiorni, Map<Integer, List<Attività>> attivitàPerGiorno) {
-        this.nomeCittà = nomeCittà;
-        this.utenteId = utenteId;
-        this.numeroGiorni = numeroGiorni;
-        this.attivitàPerGiorno = attivitàPerGiorno;
-    }
 
     public ItinerarioBean(Itinerario itinerario){
         this.nomeCittà = itinerario.getNomeCittà();
         this.utenteId = itinerario.getUtenteId();
         this.numeroGiorni = itinerario.getNumeroGiorni();
         this.attivitàPerGiorno = itinerario.getAttivitàPerGiorno();
+        this.dataCreazione = itinerario.getDataCreazione();
+        this.idItinerario = itinerario.getId();
     }
 
-    // Getter e Setter
+    public Date getDataCreazione() {
+        return dataCreazione;
+    }
+
+    public void setDataCreazione(Date dataCreazione) {
+        this.dataCreazione = dataCreazione;
+    }
+
     public String getNomeCittà() {
         return nomeCittà;
     }

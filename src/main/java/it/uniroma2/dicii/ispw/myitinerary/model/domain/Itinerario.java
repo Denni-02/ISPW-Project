@@ -1,14 +1,22 @@
 package it.uniroma2.dicii.ispw.myitinerary.model.domain;
 
+import it.uniroma2.dicii.ispw.myitinerary.bean.ItinerarioBean;
+
+import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class Itinerario {
+public class Itinerario implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String nomeCittà;
     private String utenteId;
     private int numeroGiorni;
     private Map<Integer, List<Attività>> attivitàPerGiorno;
+    private Date dataCreazione;
+    private int id;
 
     // Costruttore vuoto
     public Itinerario() {}
@@ -21,7 +29,41 @@ public class Itinerario {
         this.attivitàPerGiorno = attivitàPerGiorno;
     }
 
+    public Itinerario(String nomeCittà, String utenteId, int numeroGiorni, Map<Integer, List<Attività>> attivitàPerGiorno, Date dataCreazione) {
+        this.nomeCittà = nomeCittà;
+        this.utenteId = utenteId;
+        this.numeroGiorni = numeroGiorni;
+        this.attivitàPerGiorno = attivitàPerGiorno;
+        this.dataCreazione = dataCreazione;
+    }
+
+    public Itinerario(String nomeCittà, String utenteId, int numeroGiorni, Map<Integer, List<Attività>> attivitàPerGiorno, Date dataCreazione, int id) {
+        this.nomeCittà = nomeCittà;
+        this.utenteId = utenteId;
+        this.numeroGiorni = numeroGiorni;
+        this.attivitàPerGiorno = attivitàPerGiorno;
+        this.dataCreazione = dataCreazione;
+        this.id = id;
+    }
+
+    public Itinerario(ItinerarioBean itinerarioBean) {
+        this.nomeCittà = itinerarioBean.getNomeCittà();
+        this.utenteId = itinerarioBean.getUtenteId();
+        this.numeroGiorni = itinerarioBean.getNumeroGiorni();
+        this.attivitàPerGiorno = itinerarioBean.getAttivitàPerGiorno();
+        this.dataCreazione = itinerarioBean.getDataCreazione();
+    }
+
+
     // Getter e Setter
+    public Date getDataCreazione() {
+        return dataCreazione;
+    }
+
+    public void setDataCreazione(Date dataCreazione) {
+        this.dataCreazione = dataCreazione;
+    }
+
     public String getNomeCittà() {
         return nomeCittà;
     }
@@ -54,5 +96,13 @@ public class Itinerario {
         this.attivitàPerGiorno = attivitàPerGiorno;
     }
 
+
+    public void setId(int newId) {
+        this.id = newId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
 }
 

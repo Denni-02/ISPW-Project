@@ -2,7 +2,11 @@ package it.uniroma2.dicii.ispw.myitinerary.model.domain;
 
 import it.uniroma2.dicii.ispw.myitinerary.bean.AttivitàBean;
 
-public class Attività {
+import java.io.Serializable;
+
+public class Attività implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private int id;
     private String nome;
@@ -12,8 +16,6 @@ public class Attività {
     private int numeroRecensioni;
     private String imageUrl;
 
-
-    // Costruttore vuoto
     public Attività() {}
 
     public Attività(String nome, String descrizione, String indirizzo, float rating, int numeroRecensioni, String imageUrl) {
@@ -34,14 +36,12 @@ public class Attività {
         this.imageUrl = attivitàBean.getImageUrl();
     }
 
-    // Costruttore con parametri
     public Attività(String nome, String descrizione, String indirizzo, String orari) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.indirizzo = indirizzo;
     }
 
-    // Getter e Setter
     public String getNome() {
         return nome;
     }
@@ -65,7 +65,6 @@ public class Attività {
     public void setIndirizzo(String indirizzo) {
         this.indirizzo = indirizzo;
     }
-
 
     public float getRating() {
         return rating;

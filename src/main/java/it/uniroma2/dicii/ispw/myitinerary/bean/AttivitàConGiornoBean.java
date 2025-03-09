@@ -1,4 +1,5 @@
 package it.uniroma2.dicii.ispw.myitinerary.bean;
+
 import it.uniroma2.dicii.ispw.myitinerary.model.domain.Attività;
 
 public class AttivitàConGiornoBean {

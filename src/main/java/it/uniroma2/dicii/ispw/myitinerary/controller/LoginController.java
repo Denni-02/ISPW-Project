@@ -39,4 +39,12 @@ public class LoginController {
         return new UtenteBean(utente.getNome(), utente.getCognome(), utente.getCf(), utente.getDataDiNascita(), utente.getEmail(), utente.getPassword(), utente.getRuolo());
     }
 
+    public void saveUser(Utente utente) {
+        if (loginDAO instanceof LoginFS) {
+            ((LoginFS) loginDAO).saveUser(utente);
+        } else {
+            // Altri metodi di salvataggio, ad esempio per il DBMS
+        }
+    }
+
 }

@@ -1,10 +1,8 @@
 package it.uniroma2.dicii.ispw.myitinerary.utils;
 
 import it.uniroma2.dicii.ispw.myitinerary.App;
-import it.uniroma2.dicii.ispw.myitinerary.bean.UtenteBean;
 import it.uniroma2.dicii.ispw.myitinerary.model.domain.Utente;
 import it.uniroma2.dicii.ispw.myitinerary.view.graphiccontroller.ControllerGrafico;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

@@ -4,6 +4,8 @@ module it.uniroma2.dicii.ispw.myitinerary {
     requires java.logging;
     requires java.sql;
     requires google.maps.services;
+    requires java.prefs;
+    requires com.google.gson;
 
     opens it.uniroma2.dicii.ispw.myitinerary to javafx.fxml;
     exports it.uniroma2.dicii.ispw.myitinerary;

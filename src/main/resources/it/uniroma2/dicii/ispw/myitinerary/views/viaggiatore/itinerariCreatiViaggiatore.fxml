@@ -48,14 +48,26 @@
         <VBox alignment="CENTER" prefHeight="750.0" prefWidth="1200.0" spacing="10.0">
             <children>
                 <ListView fx:id="itinerariListView" prefHeight="507.0" prefWidth="1190.0">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin></ListView>
-            <Button mnemonicParsing="false" onAction="#indietroButton" text="Indietro">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </Button>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin></ListView>
+                <HBox alignment="CENTER" spacing="10.0">
+                    <Button mnemonicParsing="false" onAction="#indietroButton" prefWidth="200.0" text="Indietro">
+                        <font>
+                            <Font name="Arial" size="18.0" />
+                        </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#onVediDettagliClick" prefWidth="200.0" text="Vedi Dettagli">
+                        <font>
+                            <Font name="Arial" size="18.0" />
+                        </font>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#onCancellaItinerarioClick" prefWidth="200.0" text="Cancella Itinerario">
+                        <font>
+                            <Font name="Arial" size="18.0" />
+                        </font>
+                    </Button>
+                </HBox>
             </children>
         </VBox>
         <Button layoutX="1130.0" layoutY="680.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #FF9D43;">
