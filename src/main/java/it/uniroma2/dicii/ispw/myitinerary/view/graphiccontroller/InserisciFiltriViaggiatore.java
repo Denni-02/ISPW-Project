@@ -6,6 +6,7 @@ import it.uniroma2.dicii.ispw.myitinerary.controller.CreaItinerarioController;
 import it.uniroma2.dicii.ispw.myitinerary.model.domain.Utente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.io.IOException;
@@ -71,7 +72,34 @@ public class InserisciFiltriViaggiatore extends ControllerGrafico{
     }
 
     public void onAvantiClick(ActionEvent actionEvent) throws IOException {
-        int giorniViaggio = Integer.parseInt(giorniTextField.getText());
+        // Controllo numero di giorni
+        String giorniText = giorniTextField.getText();
+        int giorniViaggio;
+        try {
+            giorniViaggio = Integer.parseInt(giorniText);
+            if (giorniViaggio <= 0) {
+                showAlert("Errore di Input", "Il numero di giorni deve essere maggiore di zero.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            showAlert("Errore di Input", "Inserisci un numero valido di giorni.");
+            return;
+        }
+
+        // Controllo che almeno un filtro sia selezionato
+        boolean isAnyFilterSelected = museiButton.getStyleClass().contains("selected") ||
+                attrazioniButton.getStyleClass().contains("selected") ||
+                parchiButton.getStyleClass().contains("selected") ||
+                musicaButton.getStyleClass().contains("selected") ||
+                arteButton.getStyleClass().contains("selected") ||
+                vitaNotturnaButton.getStyleClass().contains("selected") ||
+                bibliotecheButton.getStyleClass().contains("selected");
+
+        if (!isAnyFilterSelected) {
+            showAlert("Errore di Input", "Seleziona almeno una categoria di attività.");
+            return;
+        }
+
         FiltroBean filtroBean = new FiltroBean();
         filtroBean.setMusei(museiButton.getStyleClass().contains("selected"));
         filtroBean.setAttrazioni(attrazioniButton.getStyleClass().contains("selected"));
@@ -82,7 +110,16 @@ public class InserisciFiltriViaggiatore extends ControllerGrafico{
         filtroBean.setBiblioteche(bibliotecheButton.getStyleClass().contains("selected"));
         filtroBean.setGiorniViaggio(giorniViaggio);
         creaItinerarioController.setFiltroBean(filtroBean);
-        changeScene(actionEvent, "/it/uniroma2/dicii/ispw/myitinerary/views/viaggiatore/selezionaAttivitàViaggiatore.fxml", "Selezione Attività", creaItinerarioController , viaggiatore);
+
+        changeScene(actionEvent, "/it/uniroma2/dicii/ispw/myitinerary/views/viaggiatore/selezionaAttivitàViaggiatore.fxml", "Selezione Attività", creaItinerarioController, viaggiatore);
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     public void onIndietroClick(ActionEvent actionEvent) throws IOException {
@@ -95,5 +132,52 @@ public class InserisciFiltriViaggiatore extends ControllerGrafico{
 
     public void mieiItinerariClick(ActionEvent actionEvent) throws IOException {
         changeScene(actionEvent, "/it/uniroma2/dicii/ispw/myitinerary/views/viaggiatore/itinerariCreatiViaggiatore.fxml", "I miei Itinerari", null, viaggiatore);
+    }
+
+    public void tastoSinistroClick(ActionEvent actionEvent) throws IOException {
+        changeScene(actionEvent, "/it/uniroma2/dicii/ispw/myitinerary/views/viaggiatore/inserisciCittàViaggiatore.fxml", "Inserimento Città", creaItinerarioController , viaggiatore);
+    }
+
+    public void tastoDestroClick(ActionEvent actionEvent) throws IOException {
+        // Controllo numero di giorni
+        String giorniText = giorniTextField.getText();
+        int giorniViaggio;
+        try {
+            giorniViaggio = Integer.parseInt(giorniText);
+            if (giorniViaggio <= 0) {
+                showAlert("Errore di Input", "Il numero di giorni deve essere maggiore di zero.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            showAlert("Errore di Input", "Inserisci un numero valido di giorni.");
+            return;
+        }
+
+        // Controllo che almeno un filtro sia selezionato
+        boolean isAnyFilterSelected = museiButton.getStyleClass().contains("selected") ||
+                attrazioniButton.getStyleClass().contains("selected") ||
+                parchiButton.getStyleClass().contains("selected") ||
+                musicaButton.getStyleClass().contains("selected") ||
+                arteButton.getStyleClass().contains("selected") ||
+                vitaNotturnaButton.getStyleClass().contains("selected") ||
+                bibliotecheButton.getStyleClass().contains("selected");
+
+        if (!isAnyFilterSelected) {
+            showAlert("Errore di Input", "Seleziona almeno una categoria di attività.");
+            return;
+        }
+
+        FiltroBean filtroBean = new FiltroBean();
+        filtroBean.setMusei(museiButton.getStyleClass().contains("selected"));
+        filtroBean.setAttrazioni(attrazioniButton.getStyleClass().contains("selected"));
+        filtroBean.setParchi(parchiButton.getStyleClass().contains("selected"));
+        filtroBean.setMusica(musicaButton.getStyleClass().contains("selected"));
+        filtroBean.setArte(arteButton.getStyleClass().contains("selected"));
+        filtroBean.setVitaNotturna(vitaNotturnaButton.getStyleClass().contains("selected"));
+        filtroBean.setBiblioteche(bibliotecheButton.getStyleClass().contains("selected"));
+        filtroBean.setGiorniViaggio(giorniViaggio);
+        creaItinerarioController.setFiltroBean(filtroBean);
+
+        changeScene(actionEvent, "/it/uniroma2/dicii/ispw/myitinerary/views/viaggiatore/selezionaAttivitàViaggiatore.fxml", "Selezione Attività", creaItinerarioController, viaggiatore);
     }
 }

@@ -5,5 +5,5 @@ import it.uniroma2.dicii.ispw.myitinerary.model.domain.Utente;
 import java.sql.SQLException;
 
 public interface LoginDAO {
-    public Utente autenticazione(LoginBean loginBean) throws SQLException;
+    Utente autenticazione(LoginBean loginBean) throws SQLException;
 }

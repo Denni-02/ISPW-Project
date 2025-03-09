@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" stylesheets="@../../../myitinerary/css/application.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.dicii.ispw.myitinerary.view.graphiccontroller.InserisciDati">
+    <children>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="75.0" prefWidth="1180.0" spacing="10.0" style="-fx-background-color: #0083BB;">
+            <children>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#homeClick" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #FF9D43;">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#mieiAnnunciClick" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="I miei annunci" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="Notifiche" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="330.0" style="-fx-background-color: #0083BB;" text="Informazioni" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #FF9D43;">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../myitinerary/images/account.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <GridPane hgap="10.0" layoutX="100.0" layoutY="100.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints minWidth="100.0" prefWidth="200.0" />
+                <ColumnConstraints minWidth="100.0" prefWidth="300.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="100.0" />
+                <RowConstraints minHeight="10.0" prefHeight="40.0" />
+            </rowConstraints>
+
+            <!-- Label e ChoiceBox per Tipo -->
+            <Label prefHeight="22.0" prefWidth="200.0" text="Tipo di Annuncio:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <font>
+               <Font name="Arial" size="18.0" />
+            </font></Label>
+            <ChoiceBox fx:id="tipoChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <!-- Label e TextField per Nome -->
+            <Label text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <font>
+               <Font name="Arial" size="18.0" />
+            </font></Label>
+            <TextField fx:id="nomeField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <!-- Label e TextField per Città -->
+            <Label text="Città:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <font>
+               <Font name="Arial" size="18.0" />
+            </font></Label>
+            <TextField fx:id="cittàField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <!-- Label e TextField per Indirizzo -->
+            <Label text="Indirizzo:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+            <font>
+               <Font name="Arial" size="18.0" />
+            </font></Label>
+            <TextField fx:id="indirizzoField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <!-- Label e TextField per Sito Web -->
+            <Label text="Sito Web:" GridPane.columnIndex="0" GridPane.rowIndex="4">
+            <font>
+               <Font name="Arial" size="18.0" />
+            </font></Label>
+            <TextField fx:id="sitoWebField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+            <!-- Label e TextArea per Descrizione -->
+            <Label text="Descrizione:" GridPane.columnIndex="0" GridPane.rowIndex="5">
+            <font>
+               <Font name="Arial" size="18.0" />
+            </font></Label>
+            <TextArea fx:id="descrizioneArea" prefHeight="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+            <!-- Pulsante per Caricare Foto -->
+            <Button onAction="#onCaricaFotoClick" prefHeight="50.0" prefWidth="200.0" text="Carica Foto" GridPane.columnIndex="0" GridPane.rowIndex="6">
+            <font>
+               <Font name="Arial" size="18.0" />
+            </font></Button>
+
+            <!-- Pulsante per Inserire l'Annuncio -->
+            <Button onAction="#onInserisciClick" prefHeight="50.0" prefWidth="300.0" text="Inserisci Annuncio" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <font>
+               <Font name="Arial" size="18.0" />
+            </font></Button>
+         <padding>
+            <Insets bottom="50.0" left="150.0" right="50.0" top="50.0" />
+         </padding>
+        </GridPane>
+        <Button layoutX="1130.0" layoutY="680.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #FF9D43;">
+            <graphic>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../myitinerary/images/chat.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
+</AnchorPane>

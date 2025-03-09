@@ -2,9 +2,7 @@ package it.uniroma2.dicii.ispw.myitinerary.model.dao;
 
 import it.uniroma2.dicii.ispw.myitinerary.bean.ItinerarioBean;
 import it.uniroma2.dicii.ispw.myitinerary.model.domain.Attività;
-import it.uniroma2.dicii.ispw.myitinerary.model.domain.Itinerario;
 import it.uniroma2.dicii.ispw.myitinerary.utils.SingletonDBConnection;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,16 +14,18 @@ public class ItinerarioDBMS implements ItinerarioDAO {
     @Override
     public void saveItinerario(ItinerarioBean itinerarioBean) {
 
-        String insertItinerario = "INSERT INTO ITINERARIO (nomeCittà, numeroGiorni, idUtente) VALUES (?, ?, ?)";
+        String insertItinerario = "INSERT INTO ITINERARIO (nomeCittà, numeroGiorni, idUtente, dataCreazione) VALUES (?, ?, ?, ?)";
         String insertAttivita = "INSERT INTO ATTIVITA (nome, descrizione, indirizzo, valutazione, numeroRecensioni, imageUrl) VALUES (?, ?, ?, ?, ?, ?)";
         String insertItinerarioAttivita = "INSERT INTO ITINERARIO_ATTIVITA (idItinerario, idAttività, giorno) VALUES (?, ?, ?)";
 
         try (Connection conn = SingletonDBConnection.getInstance().getConnection()) {
+
             // Inserisci l'itinerario
             PreparedStatement psItinerario = conn.prepareStatement(insertItinerario, Statement.RETURN_GENERATED_KEYS);
             psItinerario.setString(1, itinerarioBean.getNomeCittà());
             psItinerario.setInt(2, itinerarioBean.getNumeroGiorni());
             psItinerario.setString(3, itinerarioBean.getUtenteId());
+            psItinerario.setDate(4, new java.sql.Date(itinerarioBean.getDataCreazione().getTime())); // Imposta la data di creazione
             psItinerario.executeUpdate();
 
             // Recupera l'ID generato per l'itinerario
@@ -71,7 +71,7 @@ public class ItinerarioDBMS implements ItinerarioDAO {
     @Override
     public List<ItinerarioBean> getItinerariByUtente(String utenteId) {
         List<ItinerarioBean> itinerari = new ArrayList<>();
-        String query = "SELECT iditinerario, nomeCittà, numeroGiorni FROM ITINERARIO WHERE idUtente = ?";
+        String query = "SELECT iditinerario, nomeCittà, numeroGiorni, dataCreazione FROM ITINERARIO WHERE idUtente = ?";
 
         try (Connection conn = SingletonDBConnection.getInstance().getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
@@ -84,6 +84,7 @@ public class ItinerarioDBMS implements ItinerarioDAO {
                 itinerario.setId(rs.getInt("iditinerario"));
                 itinerario.setNomeCittà(rs.getString("nomeCittà"));
                 itinerario.setNumeroGiorni(rs.getInt("numeroGiorni"));
+                itinerario.setDataCreazione(rs.getDate("dataCreazione"));
                 itinerari.add(itinerario);
             }
         } catch (SQLException e) {
@@ -106,6 +107,7 @@ public class ItinerarioDBMS implements ItinerarioDAO {
                 "WHERE IA.idItinerario = ?";
 
         try (Connection conn = SingletonDBConnection.getInstance().getConnection()) {
+
             // Recupero dati dell'itinerario
             PreparedStatement psItinerario = conn.prepareStatement(queryItinerario);
             psItinerario.setInt(1, idItinerario);
@@ -142,6 +144,34 @@ public class ItinerarioDBMS implements ItinerarioDAO {
         }
 
         return itinerario;
+    }
+
+    @Override
+    public void deleteItinerario(int idItinerario) {
+        String deleteItinerario = "DELETE FROM ITINERARIO WHERE iditinerario = ?";
+        String deleteAttivita = "DELETE FROM ATTIVITA WHERE idattività IN (SELECT idAttività FROM ITINERARIO_ATTIVITA WHERE idItinerario = ?)";
+        String deleteItinerarioAttivita = "DELETE FROM ITINERARIO_ATTIVITA WHERE idItinerario = ?";
+
+        try (Connection conn = SingletonDBConnection.getInstance().getConnection()) {
+
+            // Cancella le relazioni tra itinerario e attività
+            PreparedStatement psItinerarioAttivita = conn.prepareStatement(deleteItinerarioAttivita);
+            psItinerarioAttivita.setInt(1, idItinerario);
+            psItinerarioAttivita.executeUpdate();
+
+            // Cancella le attività
+            PreparedStatement psAttivita = conn.prepareStatement(deleteAttivita);
+            psAttivita.setInt(1, idItinerario);
+            psAttivita.executeUpdate();
+
+            // Cancella l'itinerario
+            PreparedStatement psItinerario = conn.prepareStatement(deleteItinerario);
+            psItinerario.setInt(1, idItinerario);
+            psItinerario.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

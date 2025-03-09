@@ -55,15 +55,13 @@
                         </TextField>
                     </children>
                 </HBox>
+                <ListView fx:id="suggestionsListView" maxHeight="150.0" maxWidth="452.0" prefHeight="150.0" prefWidth="452.0" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ricerche recenti" underline="true" wrappingWidth="447.91835939884186">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Text>
-                <TextArea editable="false" maxHeight="300.0" maxWidth="450.0" prefHeight="300.0" prefWidth="379.0" style="-fx-background-color: #000000; -fx-border-width: 2; -fx-border-color: #000000;">
-                    <font>
-                        <Font name="Arial" size="18.0" />
-                    </font></TextArea>
+            <ListView fx:id="recentCitiesListView" maxHeight="200.0" maxWidth="452.0" prefHeight="200.0" prefWidth="452.0" />
             </children>
         </VBox>
         <Button layoutX="1130.0" layoutY="680.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: #FF9D43;">
@@ -89,7 +87,7 @@
                 <HBox alignment="CENTER" maxHeight="10.0" maxWidth="700.0" prefHeight="10.0" prefWidth="700.0" spacing="10.0">
                     <children>
                         <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefWidth="220.0" style="-fx-background-color: #000000; -fx-background-radius: 20;" />
-                        <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-width: 1; -fx-border-radius: 20;" />
+                        <Button maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#tastoCentraleClick" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-width: 1; -fx-border-radius: 20;" />
                         <Button maxHeight="10.0" maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-border-width: 1; -fx-border-color: #000000; -fx-border-radius: 20; -fx-background-radius: 20;" />
                     </children>
                 </HBox>
@@ -104,11 +102,15 @@
                 </Button>
             </children>
         </HBox>
-
-        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="840.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../../myitinerary/images/ricerca.png" />
-            </image>
-        </ImageView>
+      <Button contentDisplay="CENTER" layoutX="847.0" layoutY="189.0" mnemonicParsing="false" onAction="#onCercaClick" prefHeight="50.0" prefWidth="50.0">
+         <graphic>
+      
+              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../../../myitinerary/images/ricerca.png" />
+                  </image>
+              </ImageView>
+         </graphic>
+      </Button>
     </children>
 </AnchorPane>

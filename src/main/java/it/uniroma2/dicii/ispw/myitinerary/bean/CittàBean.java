@@ -15,5 +15,4 @@ public class CittàBean {
     public void setNomeCittà(String nomeCittà) {
         this.nomeCittà = nomeCittà;
     }
-
 }

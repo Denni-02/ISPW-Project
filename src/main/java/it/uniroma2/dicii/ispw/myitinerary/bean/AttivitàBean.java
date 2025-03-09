@@ -1,6 +1,7 @@
 package it.uniroma2.dicii.ispw.myitinerary.bean;
 
 public class AttivitàBean {
+
     private int id;
     private String nome;
     private String descrizione;

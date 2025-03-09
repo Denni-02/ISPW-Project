@@ -3,6 +3,7 @@ package it.uniroma2.dicii.ispw.myitinerary;
 import it.uniroma2.dicii.ispw.myitinerary.utils.LoggerManager;
 import it.uniroma2.dicii.ispw.myitinerary.enumeration.PersistenceType;
 import it.uniroma2.dicii.ispw.myitinerary.enumeration.UIType;
+import it.uniroma2.dicii.ispw.myitinerary.view.interfacciacli.CliLoginView;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,11 +23,11 @@ public class App extends Application {
         if(App.ui.equals(UIType.JAVAFX)){
             launch();
         } else {
-            //new CliController().start();
+            new CliLoginView().display();
         }
     }
 
-    private static void setPersistenceAndUI(){
+    public static void setPersistenceAndUI(){
         try(InputStream input = App.class.getClassLoader().getResourceAsStream("application.properties")){
 
             Properties prop = new Properties();
@@ -65,7 +66,6 @@ public class App extends Application {
             stage.getIcons().add(icon);
         }
 
-        //stage.initStyle(StageStyle.UNIFIED);
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.setTitle("MyItinerary");

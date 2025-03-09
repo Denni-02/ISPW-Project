@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class SingletonDBConnection {
 
-    private static SingletonDBConnection instance = null; //unica istanza
+    private static SingletonDBConnection instance = null;
 
     protected Connection conn = null;
 
